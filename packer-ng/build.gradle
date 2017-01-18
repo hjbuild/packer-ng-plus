@@ -1,0 +1,24 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+    compile 'com.android.tools.build:gradle:2.2.0'
+    compile 'com.mcxiaoke.gradle:packer-helper:1.0.8'
+}
+
+repositories {
+    mavenCentral()
+}
+
+group = 'com.hongju.package'
+version = '0.2.0'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('../repo'))
+        }
+    }
+}
